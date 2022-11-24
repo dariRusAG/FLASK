@@ -4,6 +4,7 @@
     <title> Приветствие </title>
 </head>
 <body>
+<form action="{{ url_for('index') }}" method="get">
 <p>
     {% if name == '' %} Введите имя, пожалуйста!
     {% else %} Привет,
@@ -12,6 +13,7 @@
     {% endif %}{{name}}!
     {% endif %}
 </p>
+
 <p> Ваша образовательная программа: {{program}}.</p>
 <p>
     {% if subjects_select == [] %} Вы не изучаете никаких дисциплин.
@@ -24,6 +26,7 @@
     {% endfor %}
     {% endif %}
 </p>
+
 <p>
     {% if olymp_compet_select == [] %} Вы не участвовали в олимпиадах и конкурсах.
     {% else %} Ваши олимпиады и конкурсы:
@@ -34,5 +37,7 @@
     {% endfor %}
     {% endif %}
 </p>
+    <p><input type=submit value=Очистить></p>
+</form>
 </body>
 </html>

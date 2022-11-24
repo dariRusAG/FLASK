@@ -5,17 +5,20 @@
 </head>
 <body>
 <form action="{{ url_for('hello') }}" method="get">
+
     <p>Имя: <input type=text name=username></p>
     <p>Пол:<br>
         <input type=radio name=gender value=w> Ж <br>
         <input type=radio name=gender value=m> M
     </p>
+
     Образовательная программа:
     <select name=program>
         {% for i in range(len(program_list)) %}
         <option value={{i}}>{{program_list[i]}}</option>
         {% endfor %}
     </select>
+
     <p>
         Выберите дисциплины, которые Вы изучаете:<br>
         {% for i in range(len(subject_list)) %}
@@ -31,7 +34,9 @@
         {{olymp_compet_list[i]}}<br>
         {% endfor %}
     </p>
+
     <p><input type=submit value=Отправить></p>
+
 </form>
 </body>
 </html>
