@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <title> Приветствие </title>
+</head>
+<body>
+    <p>Имя: <input type=text name=username value={{name}}></p>
+    <p>Пол:<br>
+        {% if gender == 'w' %}
+        <input type=radio name=gender value=w checked> Ж <br>
+        <input type=radio name=gender value=m> M
+        {% elif gender == 'm' %}
+        <input type=radio name=gender value=w> Ж <br>
+        <input type=radio name=gender value=m checked> M
+        {% else %}
+        <input type=radio name=gender value=w> Ж <br>
+        <input type=radio name=gender value=m> M
+        {% endif %}
+    </p>
+
+    Образовательная программа:
+    <select name=program>
+        {% for i in range(len(program_list)) %}
+        {% if program_list[i] == program %}
+        {% set index = i %}
+        {% else %}
+        <option value={{i}}>{{program_list[i]}}</option>
+        {% endif %}
+        {% endfor %}
+        <option value={{len(program_list)}} selected>{{program}}</option>
+    </select>
+
+    <p>
+        Выберите дисциплины, которые Вы изучаете:<br>
+        {% for i in range(len(subject_list)) %}
+        {% if subject_list[i] in subjects_select %}
+        <input type=checkbox name=subject[] value={{i}} checked> {{ subject_list[i] }}<br>
+        {% else %} <input type=checkbox name=subject[] value={{i}}> {{ subject_list[i] }}<br>
+        {% endif %}
+        {% endfor %}
+    </p>
+
+    <p>
+        Отметьте олимпиады и конкурсы, в которых Вы участвовали:<br>
+        {% for i in range(len(olymp_compet_list)) %}
+        {% if olymp_compet_list[i] in olymp_compet_select %}
+        <input type=checkbox name=olymp_compet[] value={{i}} checked> {{olymp_compet_list[i]}}<br>
+        {% else %}
+        <input type=checkbox name=olymp_compet[] value={{i}}> {{olymp_compet_list[i]}}<br>
+        {% endif %}
+        {% endfor %}
+    </p>
+
+</form>
+</body>
+</html>

@@ -7,4 +7,3 @@ import controllers.index
 import controllers.hello
 import controllers.subject
 import controllers.olymp
-import controllers.index_h
